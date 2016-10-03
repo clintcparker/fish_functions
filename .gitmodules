@@ -1,0 +1,3 @@
+[submodule "jonmarkprice/fish-functions"]
+	path = jonmarkprice/fish-functions
+	url = https://github.com/jonmarkprice/fish-functions.git
