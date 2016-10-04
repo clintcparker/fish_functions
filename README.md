@@ -8,6 +8,6 @@ To install:
 
 then
 
-`set fish_function_path $fish_function_path $fish_function_path[1]/jonmarkprice/fish-functions/`
+`set -g fish_function_path $fish_function_path $fish_function_path[1]/jonmarkprice/fish-functions/`
 
 Built on top of [https://github.com/jonmarkprice/fish-functions](https://github.com/jonmarkprice/fish-functions). 
