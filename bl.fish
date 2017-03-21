@@ -1,4 +1,9 @@
 function bl --description 'list all apps installed via homebrew & cask'
-	brew list
+	echo "Brews"
+    echo "--------------"
+    brew list
+    echo ""
+    echo "Casks"
+    echo "--------------"
     brew cask list
 end
