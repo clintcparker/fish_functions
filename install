@@ -1,0 +1,19 @@
+# check if run from same path, since we need to know what directory to add to $fish_functions_path
+if test ! -e ./install
+	echo "please run from same directory as 'install'"
+	echo "Ex: fish ./install"
+else	
+	echo "installing..."
+	if not contains (pwd)  $fish_function_path
+		echo "adding to path"
+		set -l thisPath (pwd)
+		set -l thisOtherPath (echo "$thisPath/jonmarkprice/fish-functions/" ) 
+		echo "Adding $thisPath"
+		set -g fish_function_path $thisPath $fish_function_path 
+		contains (pwd) $fish_function_path; and echo "Added $thisPath"; or echo "thisPath add failed"
+		set -g fish_function_path $fish_function_path $thisOtherPath 
+		contains (pwd) $fish_function_path; and echo "Added $thisOtherPath "; or echo "$thisOtherPath add failed"
+	else
+		echo "already in path"
+	end
+end
