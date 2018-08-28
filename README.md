@@ -1,13 +1,19 @@
-#fish functions
+# fish functions
 
 Helpful functions for everyday work.
 
 To install:
 
-`git clone https://github.com/clintcparker/fish_functions.git $fish_function_path[1]`
+`git clone https://github.com/clintcparker/fish_functions.git`
 
 then
 
-`set -g fish_function_path $fish_function_path $fish_function_path[1]/jonmarkprice/fish-functions/`
+`cd fish_functions`
 
-Built on top of [https://github.com/jonmarkprice/fish-functions](https://github.com/jonmarkprice/fish-functions). 
+then
+
+`source ./install`
+
+done!
+
+Built on top of [https://github.com/jonmarkprice/fish-functions](https://github.com/jonmarkprice/fish-functions).

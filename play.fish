@@ -75,5 +75,5 @@ Control iTunes in fish!!!!
 	osascript -e "try
 									$action
 								end try"
-	playing
+	#playing
 end
