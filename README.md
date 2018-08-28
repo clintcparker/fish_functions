@@ -16,4 +16,4 @@ then
 
 done!
 
-Built on top of [https://github.com/jonmarkprice/fish-functions](https://github.com/jonmarkprice/fish-functions). 
+Built on top of [https://github.com/jonmarkprice/fish-functions](https://github.com/jonmarkprice/fish-functions).
