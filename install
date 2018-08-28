@@ -9,9 +9,9 @@ else
 		set -l thisPath (pwd)
 		set -l thisOtherPath (echo "$thisPath/jonmarkprice/fish-functions/" ) 
 		echo "Adding $thisPath"
-		set -g fish_function_path $thisPath $fish_function_path 
+		set -gx fish_function_path $thisPath $fish_function_path 
 		contains (pwd) $fish_function_path; and echo "Added $thisPath"; or echo "thisPath add failed"
-		set -g fish_function_path $fish_function_path $thisOtherPath 
+		set -gx fish_function_path $fish_function_path $thisOtherPath 
 		contains (pwd) $fish_function_path; and echo "Added $thisOtherPath "; or echo "$thisOtherPath add failed"
 	else
 		echo "already in path"
