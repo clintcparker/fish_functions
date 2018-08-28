@@ -1,4 +1,4 @@
-#fish functions
+# fish functions
 
 Helpful functions for everyday work.
 
