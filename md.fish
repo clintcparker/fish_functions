@@ -1,3 +1,3 @@
 function md
-	macdown $argv
+	code $argv
 end
