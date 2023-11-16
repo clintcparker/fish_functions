@@ -57,7 +57,7 @@ function update --description "tool for updating global tools"
         functions -e __update_dnt
     end
 
-    function __update_asdf --description "update global homebrew packages"
+    function __update_asdf --description "update global asdf plugins"
         set -l info "for each tool in $HOME/.tool-versions
             updates the plguin for the tool
             then install the latest version of the tool
@@ -69,6 +69,7 @@ function update --description "tool for updating global tools"
             end
         end
         if [ (count $argv) = 1 ]
+            echo "asdf plugins:"
             if [ "--list" = "$argv[1]" ]
                 cat ~/.tool-versions | while read -l pkg ver
                     echo $pkg
@@ -89,7 +90,7 @@ function update --description "tool for updating global tools"
         functions -e __update_asdf
     end
 
-    function __update_gem --description "update global homebrew packages"
+    function __update_gem --description "update global ruby gems"
         set -l info "updates RubyGems and all gems
             gem update --system
             bundle update"
@@ -134,9 +135,9 @@ function update --description "tool for updating global tools"
         if read_confirm
             echo "Updating all global tools"
             update brew
-            update dnt
             update asdf
             update gem
+            update dnt
         else
             echo "Aborting"
         end
@@ -148,7 +149,7 @@ function update --description "tool for updating global tools"
         Usage: update [tool manager]
             Example: update brew
         use 'update --list-all' to list all tool managers
-        use 'update --info tool' to print info about a tool manager
+        use 'update --info [tool manager]' to print info about a tool manager
         use 'update --help' to print this help"
 
     #if there is only one argument, print info about that tool manager
@@ -159,8 +160,11 @@ function update --description "tool for updating global tools"
         end
         if [ "--list-all" = "$argv[1]" ]
             echo "List of tool managers:"
-            # print each tool manager in $toolManagers on its own line
-            printf  \t%s\n $toolManagers
+            # print each tool manager $toolManagers and its description in on its own line
+            for tool in $toolManagers
+                set -l tooldesc (desc __update_$tool)
+                echo (string replace __update_ "" $tooldesc)
+            end
             return
         end
         if [ "$argv[1]" = "--info" ]; or [ "$argv[1]" = "--list" ]

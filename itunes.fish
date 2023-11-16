@@ -9,7 +9,7 @@ function itunes --description 'itunes control. use -h for help'
 				case _ #default
 					eval $argv
 				case h
-					echo "commands can be invoked without the preceeding \"itunes\""
+					echo "commands can be invoked without the preceeding \"Music\""
 					desc play
 					desc pause
 					desc next
@@ -58,7 +58,7 @@ Control iTunes in fish!!!!
 		end
 		#echo $condition
 		set actionSetup  "
-		tell application \"iTunes\"
+		tell application \"Music\"
 			if user playlist \"fish\" exists then
 				try
 					delete tracks of user playlist \"fish\"
@@ -104,7 +104,7 @@ end
 
 function next -d "skip to next track in iTunes"
 	osascript -e "
-	tell application \"iTunes\"
+	tell application \"Music\"
 		next track
 	end tell
 	"
@@ -113,7 +113,7 @@ end
 
 function back -d "go back to start of current track in iTunes"
 	osascript -e "
-	tell application \"iTunes\"
+	tell application \"Music\"
 		back track
 	end tell
 	"
@@ -122,7 +122,7 @@ end
 
 function pause -d "pause iTunes playback"
 	osascript -e "
-	tell application \"iTunes\"
+	tell application \"Music\"
 		pause
 	end tell
 	"
@@ -131,7 +131,7 @@ end
 
 function prev -d "revisit the previous track in iTunes"
 	osascript -e "
-	tell application \"iTunes\"
+	tell application \"Music\"
 		previous track
 	end tell
 	"
